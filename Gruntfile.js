@@ -12,12 +12,12 @@ module.exports = function(grunt) {
             'jsSrcDir': 'src/js',
             'jsTargetDir': 'js',
             'jsDependencies': [
-                'bower_components/jquery/dist/jquery.js',
+                'bower_components/jquery/dist/jquery.min.js',
                 'bower_components/history.js/scripts/bundled/html4+html5/jquery.history.js',
                 'bower_components/imagesloaded/imagesloaded.pkgd.min.js',
                 'bower_components/masonry/dist/masonry.pkgd.min.js',
                 'bower_components/fitvids/jquery.fitvids.js',
-                'bower_components/highlightjs/highlight.pack.min.js',
+                //'bower_components/highlightjs/highlight.pack.min.js',
                 'bower_components/nprogress/nprogress.js',
                 'src/js/vendor/gist-embed.min.js'
             ],
@@ -89,13 +89,17 @@ module.exports = function(grunt) {
                 files: {
                     'static/<%= config.cssTargetDir %>/dependencies.css': [
                         '<%= config.cssDependencies %>'
+                    ],
+                    'static/<%= config.cssTargetDir %>/main.css': [
+                        '<%= config.cssDependencies %>',
+                        'static/<%=  config.cssTargetDir %>/style.css'
                     ]
                 }
             }
         },
         postcss: {
             options: {
-                map: true,
+                map: false,
                 processors: [
                     require('autoprefixer')({
                         browsers: ['last 2 versions']
@@ -131,6 +135,10 @@ module.exports = function(grunt) {
                     ],
                     'static/<%= config.jsTargetDir %>/dependencies.js': [
                         '<%= config.jsDependencies %>'
+                    ],
+                    'static/<%= config.jsTargetDir %>/main.js': [
+                        '<%= config.jsDependencies %>',
+                        '<%= config.jsSrcDir %>/**/*.js'
                     ]
                 }
             }
