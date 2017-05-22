@@ -106,19 +106,20 @@ jQuery(function($) {
        Run Highlight
        ========================================================================== */
 
-    function highlight() {
-        $('pre code').each(function(i, e) {
-            hljs.highlightBlock(e);
-            var code = $(this);
-            var lines = code.html().split(/\n/).length;
-            var numbers = [];
-            for (i = 1; i < lines; i++) {
-                numbers += '<span class="line">' + i + '</span>';
-            }
-            code.parent().addClass('codeblock').append('<div class="lines">' + numbers + '</div>');
-        });
-    }
-    //highlight();
+    // function highlight() {
+    //     $('pre code').each(function(i, e) {
+    //         hljs.highlightBlock(e);
+    //         hljs.configure()
+    //         var code = $(this);
+    //         var lines = code.html().split(/\n/).length;
+    //         var numbers = [];
+    //         for (i = 1; i < lines; i++) {
+    //             numbers += '<span class="line">' + i + '</span>';
+    //         }
+    //         code.parent().addClass('codeblock').append('<div class="lines">' + numbers + '</div>');
+    //     });
+    // }
+    // highlight();
 
     /* ==========================================================================
        Fitvids
@@ -183,15 +184,22 @@ jQuery(function($) {
        ========================================================================== */
 
     function reload() {
+        // The code snippet you want to highlight, as a string
+        var code = "var a int = 10"
+
+// Returns a highlighted HTML string
+        var html = Prism.highlight(code, Prism.languages.go);
+        console.log(html)
         grid();
         ajaxLinkClass();
-        //highlight();
+        // highlight();
         video();
         comments();
         gist();
         currentMenuFix();
         blurUpImages();
     }
+    reload();
 
     /* ==========================================================================
        Add class for ajax loading

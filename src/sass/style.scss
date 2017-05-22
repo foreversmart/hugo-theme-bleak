@@ -29,7 +29,7 @@ $color-gray-15: #1F2026;
 */
 
 $color-primary-default:		#00EBEB; /* Light */
-$color-primary-active:		#009999; /* Dark */
+$color-primary-active:		#00DBDB; /* Dark */
 
 
 /* ==========================================================================
@@ -68,6 +68,15 @@ a {
 	&:focus {
 		border-color: $color-primary-active;
 	}
+}
+
+.post-article {
+	background: #fff;
+	margin-bottom: 30px;
+	margin-top: 9em;
+	padding: 50px 80px;
+	box-shadow: 0 6px 12px rgba(34, 34, 34, 0.1);
+	border-radius: 3px;
 }
 
 
@@ -408,7 +417,7 @@ body {
 
 
 .inner {
-	max-width: 48em;
+	max-width: 60em;
 	margin: 0 auto;
 	padding: 0 1em;
 }
@@ -421,8 +430,8 @@ body {
 	box-sizing: border-box;
 	width: 100%;
 	min-height: 100vh;
-	padding-bottom: 6em;
-	background: $color-gray-97;
+	padding-bottom: 20em;
+	background: #e8e8e8;
 }
 
 
@@ -1024,8 +1033,8 @@ body {
 	width: 100%;
 	left: 0;
 	bottom: 0;
-	font-size: 0.75em;
-	line-height: 1.334em;
+	font-size: 0.9em;
+	line-height: 11em;
 	background: $color-gray-15;
 	color: $color-gray-50;
 	z-index: 20;
@@ -1041,8 +1050,8 @@ body {
 
 	.credits {
 		text-align: center;
-		font-size: 0.75em;
-		line-height: 1.334em;
+		font-size: 0.9em;
+		line-height: 11em;
 		padding: 2.667em;
 		overflow: auto;
 
@@ -1136,7 +1145,7 @@ body {
 	}
 
 	.post-header {
-		padding: 4em 0 0;
+		padding: 2em 0 0;
 		margin-bottom: 3em;
 	}
 }
@@ -1778,7 +1787,7 @@ body {
     margin: -75px 0 0 -75px;
     border-radius: 50%;
     border: 3px solid transparent;
-    border-top-color: $color-green-85;
+    border-top-color: $color-primary-active;
     -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
     animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
 }
@@ -1792,7 +1801,7 @@ body {
     bottom: 5px;
     border-radius: 50%;
     border: 3px solid transparent;
-    border-top-color: $color-green-72;
+    border-top-color: $color-primary-default;
     -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
       animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
 }
@@ -1809,6 +1818,10 @@ body {
     border-top-color: $color-gray-85;
     -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
       animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+
+.hljs {
+	background: none;
 }
 
 @-webkit-keyframes spin {
