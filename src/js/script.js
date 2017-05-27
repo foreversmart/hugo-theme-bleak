@@ -88,19 +88,38 @@ jQuery(function($) {
                     'height': '0',
                     'padding-bottom': 100 / img.width() * img.height() + '%'
                 });
+
             });
         });
+
         var postlist = $('.post-list').masonry({
             itemSelector: '.post',
-            isAnimated: false,
+            isAnimated: true,
             gutter: 0,
             columnWidth: 1,
             transitionDuration: 0
-        }).imagesLoaded().always(function() {
+        })
+
+        postlist.masonry('layout');
+
+
+        postlist.imagesLoaded().progress(function() {
             postlist.masonry('layout');
         });
     }
     grid();
+
+    function reGrid() {
+        var postlist = $('.post-list').masonry({
+            itemSelector: '.post',
+            isAnimated: true,
+            gutter: 0,
+            columnWidth: 1,
+            transitionDuration: 0
+        })
+
+        postlist.masonry('layout');
+    }
 
     /* ==========================================================================
        Run Highlight
@@ -184,12 +203,6 @@ jQuery(function($) {
        ========================================================================== */
 
     function reload() {
-        // The code snippet you want to highlight, as a string
-        var code = "var a int = 10"
-
-// Returns a highlighted HTML string
-        var html = Prism.highlight(code, Prism.languages.go);
-        console.log(html)
         grid();
         ajaxLinkClass();
         // highlight();
@@ -268,9 +281,13 @@ jQuery(function($) {
       // temporarily set media to something inapplicable to ensure it'll fetch without blocking render
       stylesheet.media = 'bogus';
       // set the media back when the stylesheet loads
-      stylesheet.onload = function() {stylesheet.media = 'all'}
+      stylesheet.onload = function() {
+          stylesheet.media = 'all'
+            reGrid()
+      }
       document.getElementsByTagName('head')[0].appendChild(stylesheet);
 
+        reGrid()
       // Fade out
       $('#loader-wrapper').fadeOut(300);
       $('#wrapper').fadeIn(800);
@@ -299,17 +316,21 @@ jQuery(function($) {
                 }
                 document.title = $('<textarea/>').html(title).text();
                 ajaxContainer.html(newContent);
-                body.removeClass();
-                body.addClass($('#body-class').attr('class'));
+                // body.removeClass();
+                // body.addClass($('#body-class').attr('class'));
                 NProgress.done();
                 ajaxContainer.fadeIn(500);
                 $(document).scrollTop(0);
                 setTimeout(function() {
                     html.removeClass('loading');
+                    reGrid();
                 }, 50);
-                reload();
                 loading = false;
+                reload();
+                Prism.highlightAll();
             });
+
+
         });
     });
 
