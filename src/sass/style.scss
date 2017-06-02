@@ -119,9 +119,11 @@ p {
 
 ul {
 	list-style: none;
+	list-style-type: disc;
 }
 li {
 	position: relative;
+	display: list-item;
 }
 ul > li:before,
 ol > li:before {
@@ -136,7 +138,6 @@ ol > li:before {
 }
 ul > li:before {
 	margin-top: 0.125em;
-	content: '*';
 }
 ol {
 	list-style-type: none;
