@@ -28,8 +28,8 @@ $color-gray-15: #1F2026;
 	backgrounds or as background color for light and dark text color
 */
 
-$color-primary-default:		#00EBEB; /* Light */
-$color-primary-active:		#00DBDB; /* Dark */
+$color-primary-default:		#00DBDB; /* Light */
+$color-primary-active:		#00EBEB;  /* Dark */
 
 
 /* ==========================================================================
@@ -50,7 +50,7 @@ body {
 	text-shadow: none;
 }
 a {
-	color: inherit;
+  	color: $color-primary-default;
 	text-decoration: none;
 	font-weight: 400;
 	-webkit-transition: all ease-out 0.2s;
@@ -62,8 +62,6 @@ a {
 	}
 }
 .post-content a {
-	border-bottom: 2px solid $color-primary-default;
-
 	&:hover,
 	&:focus {
 		border-color: $color-primary-active;
@@ -80,7 +78,7 @@ a {
 }
 
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h6 {
 	text-rendering: optimizeLegibility;
 	color: $color-gray-15;
 
@@ -92,29 +90,35 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
 	font-size: 2em;
 	line-height: 1em;
-	margin: 2em 0 -0.5em;
+	margin: 2em 0 0.5em;
 }
 
 h2 {
 	font-size: 1.75em;
 	line-height: 1.143em;
-	margin: 2.286em 0 -0.571em;
+	margin: 1.786em 0 0.571em;
 }
 
 h3 {
 	font-size: 1.5em;
 	line-height: 1.334em;
-	margin: 2em 0 -0.667em;
+	margin: 1.5em 0 0.667em;
 }
 
 h4 {
 	font-size: 1.25em;
 	line-height: 1.2em;
-	margin: 2.4em 0 -0.8em;
+	margin: 1.5em 0 0.8em;
+}
+
+h5 {
+	font-size: 1em;
+	margin: 1em auto;
 }
 
 p {
-	margin: 2em auto;
+	margin: 1em auto;
+	padding-left: 1.5em;
 }
 
 ul {
